@@ -6,7 +6,7 @@ import ExpenseTotal from './ExpenseTotal'
 const Budget = () => {
     //const { budget } = useContext(AppContext);
     const [budget, setBudget] = useState('');
-    const {dispatch}= useContext(AppContext)
+    const {dispatch, currency}= useContext(AppContext)
     
     const handleSubmit = (event) => {
         console.log(event.target.value)
@@ -18,14 +18,14 @@ const Budget = () => {
     };
     return (
         <div className='alert alert-secondary'>
-            <span>Budget: £</span>
+            <span>Budget: {currency} </span>
             <input
             required='required'
             type='number'
             id='budget'
             step= "10"
             max= "20000"
-            style={{ marginLeft: '2rem' , size: 10}}
+            //style={{ marginLeft: '2rem' }}
             onChange={handleSubmit}></input>
         </div>
     );
